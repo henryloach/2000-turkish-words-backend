@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const { Client } = require("pg");
 const flashcards = require("./words.json");
 
@@ -18,7 +19,7 @@ client.connect().then(() => {
 });
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 
 // POST /api/users - Add a user
